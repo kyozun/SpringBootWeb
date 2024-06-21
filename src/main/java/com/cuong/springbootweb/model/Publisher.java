@@ -4,11 +4,11 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.HashSet;
 import java.util.Set;
 
 
-@Setter
-@Getter
+
 @Entity
 public class Publisher {
     @Id
@@ -18,15 +18,44 @@ public class Publisher {
     @Column()
     private String name;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "publisher")
-    private Set<BookPublisher> bookPublisher;
+    @ManyToMany(mappedBy = "publishers")
+    private Set<Book> books;
+
+//    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "publisher")
+//    private Set<BookPublisher> bookPublisher;
+
 
     public Publisher() {
     }
 
-//    public Publisher(String name, Set<BookPublisher> bookPublisher) {
-//        this.name = name;
-//        this.bookPublisher = bookPublisher;
-//    }
+    public Publisher(int id, String name, Set<Book> books) {
+        this.id = id;
+        this.name = name;
+        this.books = books;
+    }
 
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Set<Book> getBooks() {
+        return books;
+    }
+
+    public void setBooks(Set<Book> books) {
+        this.books = books;
+    }
 }

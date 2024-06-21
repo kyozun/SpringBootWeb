@@ -1,9 +1,9 @@
 package com.cuong.springbootweb.repository;
 
+import com.cuong.springbootweb.model.Publisher;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.concurrent.Flow;
-
-public interface PublisherRepository extends JpaRepository<Flow.Publisher, Integer> {
+@Repository
+public interface PublisherRepository extends JpaRepository<Publisher, Integer> {
 }
