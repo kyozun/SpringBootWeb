@@ -2,7 +2,7 @@ services:
   mysql:
     image: 'mysql:latest'
     environment:
-      - 'MYSQL_DATABASE=vehicle_production'
+      - 'MYSQL_DATABASE=cuong'
       - 'MYSQL_ROOT_PASSWORD=pizza'
     ports:
       - '3306:3306'
